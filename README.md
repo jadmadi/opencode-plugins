@@ -14,7 +14,7 @@ and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
 | 1 | Task tool        | docs/compose/spec/task-tool.md             | opencode-task-tool              | delivered |
 | 2 | Memory           | docs/compose/spec/memory.md                | opencode-memory                 | delivered |
 | 3 | Goal             | docs/compose/spec/goal.md                  | opencode-goal                   | delivered |
-| 4 | Workflow runner  | docs/compose/spec/workflow-runner.md       | opencode-workflows              | planned |
+| 4 | Workflow runner  | docs/compose/spec/workflow-runner.md       | opencode-workflows              | in review |
 | 5 | Loop             | docs/compose/spec/loop.md                  | opencode-loop                   | planned |
 | 6 | Context limit    | docs/compose/spec/context-limit.md         | opencode-context-limit          | planned |
 | 7 | Skip permissions | docs/compose/spec/skip-permissions.md      | opencode-skip-permissions       | planned |
