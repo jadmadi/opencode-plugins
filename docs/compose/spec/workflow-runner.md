@@ -19,7 +19,8 @@ that encode fixed phases with bounded retries and automatic parallelization.
 
 ## [S2] Design
 
-A plugin provides a small runner and two built-in workflows.
+A plugin provides a small runner and one built-in workflow, deep-research.
+Fact-check is a follow-up delivery.
 
 - A `workflow` tool and a `/workflow` command start a run. Input names the
   workflow and the task text.
@@ -32,14 +33,14 @@ A plugin provides a small runner and two built-in workflows.
   resumable and auditable.
 - Bounded retries: a phase retries on a failed result up to a small cap, then
   stops the run and reports.
-- Built-ins to ship first: deep-research (brief, plan, research, reflect, write,
-  review) and fact-check (plan, search, extract, group, crosscheck, report).
-  Both read and write files and need no user interaction.
+- First delivery: deep-research (brief, plan, research, reflect, write, review).
+  It reads and writes files and needs no user interaction.
 
 ## [S3] Out of Scope
 
 - A sandboxed JavaScript runtime for user-authored workflows. Phase two.
 - The full compose pipeline and the research-experiment loop.
+- The fact-check workflow. It is a follow-up delivery.
 - A TUI progress view.
 - Cost accounting.
 
@@ -57,7 +58,5 @@ A plugin provides a small runner and two built-in workflows.
       S2; depends: T1)
 - [ ] T4: the deep-research workflow - acceptance: a fake-context run reaches
       the write phase and produces one report file (covers: S2; depends: T2)
-- [ ] T5: the fact-check workflow - acceptance: a fake-context run reaches the
-      report phase and produces a verdict file (covers: S2; depends: T2)
-- [ ] T6: README, NOTICE, and tests for both built-ins - acceptance: files
-      exist, tests pass (covers: S2; depends: T4, T5)
+- [ ] T5: README, NOTICE, and tests for deep-research - acceptance: files exist,
+      tests pass (covers: S2; depends: T4)
