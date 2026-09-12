@@ -17,7 +17,7 @@ and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
 | 4 | Workflow runner  | docs/compose/spec/workflow-runner.md       | opencode-workflows              | delivered |
 | 5 | Loop             | docs/compose/spec/loop.md                  | opencode-loop                   | delivered |
 | 6 | Context limit    | docs/compose/spec/context-limit.md         | opencode-context-limit          | delivered |
-| 7 | Skip permissions | docs/compose/spec/skip-permissions.md      | opencode-skip-permissions       | in review |
+| 7 | Skip permissions | docs/compose/spec/skip-permissions.md      | opencode-skip-permissions       | delivered |
 | 8 | Max mode         | docs/compose/spec/max-mode.md              | opencode-max-mode               | planned |
 | 9 | Distill          | docs/compose/spec/distill.md               | opencode-distill                | planned |
 
