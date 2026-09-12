@@ -12,7 +12,7 @@ and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
 | # | Feature          | Spec                                       | Future repo                     | Status  |
 | - | ---------------- | ------------------------------------------ | ------------------------------- | ------- |
 | 1 | Task tool        | docs/compose/spec/task-tool.md             | opencode-task-tool              | delivered |
-| 2 | Memory           | docs/compose/spec/memory.md                | opencode-memory                 | in review |
+| 2 | Memory           | docs/compose/spec/memory.md                | opencode-memory                 | delivered |
 | 3 | Goal             | docs/compose/spec/goal.md                  | opencode-goal                   | planned |
 | 4 | Workflow runner  | docs/compose/spec/workflow-runner.md       | opencode-workflows              | planned |
 | 5 | Loop             | docs/compose/spec/loop.md                  | opencode-loop                   | planned |
