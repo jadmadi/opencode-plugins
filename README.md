@@ -19,7 +19,7 @@ and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
 | 6 | Context limit    | docs/compose/spec/context-limit.md         | opencode-context-limit          | delivered |
 | 7 | Skip permissions | docs/compose/spec/skip-permissions.md      | opencode-skip-permissions       | delivered |
 | 8 | Max mode         | docs/compose/spec/max-mode.md              | opencode-max-mode               | delivered |
-| 9 | Distill          | docs/compose/spec/distill.md               | opencode-distill                | in review |
+| 9 | Distill          | docs/compose/spec/distill.md               | opencode-distill                | delivered |
 
 ## Waves and order
 
