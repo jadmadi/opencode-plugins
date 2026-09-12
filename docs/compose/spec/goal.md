@@ -48,9 +48,16 @@ hook, marks the end of a turn.
 
 ## Tasks
 
-- [ ] T0: spike the turn-end signal - acceptance: a note in the spec records the
+- [x] T0: spike the turn-end signal - acceptance: a note in the spec records the
       event or hook that fires when a turn ends, or states that none exists and
       gives the fallback (covers: S2)
+
+      Result: subscribe to `ctx.event.subscribe`. `session.execution.succeeded`
+      carries `sessionID` and fires when a turn completes; `session.execution.failed`
+      and `session.execution.interrupted` cover the other endings. `session.idle`
+      exists in the event manifest but did not fire in a one-shot run, so the
+      signal is `session.execution.succeeded`, not `session.idle`. There is no
+      turn-end session hook.
 - [ ] T1: the /goal command family with per-session storage - acceptance:
       set, print, and clear each round-trip in a fake-context test (covers: S2)
 - [ ] T2: the judge call and its output parsing - acceptance: a test supplies a
