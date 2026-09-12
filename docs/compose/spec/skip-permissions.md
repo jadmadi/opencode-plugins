@@ -22,12 +22,11 @@ A command toggles auto-allow for one session.
 
 - `/skip-permissions on` enables auto-allow for the current session.
   `/skip-permissions off` disables it. `/skip-permissions` prints the state.
-- Auto-allow is applied with `ctx.permission.rules({ sessionID, permissions })`.
-  Because session rules are evaluated after the agent rules and the last match
-  wins, the plugin re-applies the configured deny rules after the allow rule so
-  that denies still block.
-- The plugin reads the configured deny rules from the resolved OpenCode config.
-  A spike confirms the read path, since there is no rule-read API.
+- Auto-allow is applied with a permission `evaluate` hook. Permission hooks run
+  for `allow` and `ask` decisions, and an explicit configured `deny` is final
+  and does not invoke the hook. So the plugin never needs to read denies.
+- The hook upgrades `ask` to `allow` only when the flag is set for the event's
+  session. A deny still blocks because the hook never sees it.
 - Enabling prints a clear warning in the command result. The state is
   session-scoped and resets when the session ends. It never turns on by itself.
 
@@ -40,12 +39,14 @@ A command toggles auto-allow for one session.
 
 ## Tasks
 
-- [ ] T0: spike how to read the configured deny rules - acceptance: the spec
-      records the read path, or states that denies cannot be recovered and the
-      command refuses to enable (covers: S2)
-- [ ] T1: apply allow-all plus re-applied denies for one session - acceptance: a
-      fake-context test asserts the rule order and that a deny still wins
-      (covers: S2; depends: T0)
+- [x] T0: spike how to read the configured deny rules - result: there is no
+      rule-read API, and none is needed. A permission `evaluate` hook runs only
+      for allow and ask decisions; an explicit deny is final and never reaches
+      the hook. The design uses the hook, as recorded in S2.
+- [ ] T1: upgrade ask to allow for one session through the evaluate hook -
+      acceptance: a fake-context test asserts an ask becomes allow when the flag
+      is set, stays unchanged when it is not, and that allow and deny events are
+      never changed (covers: S2; depends: T0)
 - [ ] T2: the /skip-permissions command with on, off, and status - acceptance: a
       test round-trips the state and shows the warning on enable (covers: S2;
       depends: T1)
