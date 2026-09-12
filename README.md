@@ -1,81 +1,97 @@
-# opencode-mimo-ports
+# opencode-plugins
 
-Planning home for nine OpenCode V2 plugins ported from MiMoCode features.
+A home for OpenCode V2 plugins and tools: ports from other agent CLIs, and
+original tools. Each plugin lives in its own repo. This repo is the map: what
+exists, where it lives, and the conventions every plugin follows. Specs live
+under `docs/compose/spec/`.
 
-This repo holds the program plan and one spec per feature. Each plugin gets its
-own repo when it is built, using the same conventions as
-[opencode-model-switcher](https://github.com/jadmadi/opencode-model-switcher)
-and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
+## Models
 
-## Status
+- [model-switcher](https://github.com/jadmadi/opencode-model-switcher): slash
+  commands that switch provider and model mid-session. The command set comes
+  from a user JSON file, so anyone can add their own.
+- [context-limit](https://github.com/jadmadi/opencode-context-limit): a working
+  context budget per model. It lowers the model window through a catalog
+  transform, so compaction fires earlier. It can only lower a window.
+- [max-mode](https://github.com/jadmadi/opencode-max-mode): a `best_of_n` tool
+  that runs 2 to 8 candidate answers in parallel and a judge picks the winner.
 
-| # | Feature          | Spec                                       | Future repo                     | Status  |
-| - | ---------------- | ------------------------------------------ | ------------------------------- | ------- |
-| 1 | Task tool        | docs/compose/spec/task-tool.md             | opencode-task-tool              | delivered |
-| 2 | Memory           | docs/compose/spec/memory.md                | opencode-memory                 | delivered |
-| 3 | Goal             | docs/compose/spec/goal.md                  | opencode-goal                   | delivered |
-| 4 | Workflow runner  | docs/compose/spec/workflow-runner.md       | opencode-workflows              | delivered |
-| 5 | Loop             | docs/compose/spec/loop.md                  | opencode-loop                   | delivered |
-| 6 | Context limit    | docs/compose/spec/context-limit.md         | opencode-context-limit          | delivered |
-| 7 | Skip permissions | docs/compose/spec/skip-permissions.md      | opencode-skip-permissions       | delivered |
-| 8 | Max mode         | docs/compose/spec/max-mode.md              | opencode-max-mode               | delivered |
-| 9 | Distill          | docs/compose/spec/distill.md               | opencode-distill                | delivered |
+## Sessions and memory
 
-## Repos
+- [memory](https://github.com/jadmadi/opencode-memory): project memory,
+  checkpoints, and notes, stored per project and injected at the start of a
+  session. Registers read, append, and search tools plus three commands.
+- [task-tool](https://github.com/jadmadi/opencode-task-tool): a tree `task`
+  tool (T1, T1.1) so multi-step work survives long turns and compaction.
 
-- [opencode-task-tool](https://github.com/jadmadi/opencode-task-tool)
-- [opencode-memory](https://github.com/jadmadi/opencode-memory)
-- [opencode-goal](https://github.com/jadmadi/opencode-goal)
-- [opencode-workflows](https://github.com/jadmadi/opencode-workflows)
-- [opencode-loop](https://github.com/jadmadi/opencode-loop)
-- [opencode-context-limit](https://github.com/jadmadi/opencode-context-limit)
-- [opencode-skip-permissions](https://github.com/jadmadi/opencode-skip-permissions)
-- [opencode-max-mode](https://github.com/jadmadi/opencode-max-mode)
-- [opencode-distill](https://github.com/jadmadi/opencode-distill)
+## Autonomy and workflow
 
-## Daily use
+- [goal](https://github.com/jadmadi/opencode-goal): a judged stopping condition
+  per session. When a turn ends, a judge model decides if the goal is met, and
+  the plugin nudges and continues until it is, or gives up at a cap.
+- [workflows](https://github.com/jadmadi/opencode-workflows): deterministic
+  multi-agent workflows. Ships deep-research: brief, plan, research, reflect,
+  write, and review. Phases write artifacts and a run is resumable.
+- [loop](https://github.com/jadmadi/opencode-loop): a prompt on a fixed cadence.
+  A tick is skipped while the previous run is still active.
+- [compose-next](https://github.com/jadmadi/opencode-compose-next): the
+  spec to ship workflow as a skill (grill, spec, workspace, implement, verify,
+  review, finalize, finish), with a read-only reviewer subagent.
 
-The ports register their commands and tools from
-`~/.config/opencode/plugins/`, so no config entry is needed.
+## Safety
 
-Goal, max mode, and distill call `ctx.generate.text`, which fails on OpenCode Go
-with `Request is missing x-opencode-session`. Point them at a working model from
-a separate terminal, because each command restarts the background service:
+- [skip-permissions](https://github.com/jadmadi/opencode-skip-permissions):
+  auto-approve permission prompts for one session. A permission hook upgrades an
+  ask to an allow; a deny is final and never reaches the hook.
+- [distill](https://github.com/jadmadi/opencode-distill): find repeated
+  workflows in session history and propose skills, commands, or subagents.
+  Nothing is written until an explicit apply, and nothing is overwritten.
 
-```sh
-opencode2 service set env GOAL_MODEL deepseek/deepseek-flash
-opencode2 service set env MAX_MODE_MODEL deepseek/deepseek-flash
-opencode2 service set env DISTILL_MODEL deepseek/deepseek-flash
-```
+## Commands and tools
 
-The workflow runner uses child sessions and inherits the invoking session's
-model, so it needs no override.
+| Name              | Plugin          | Purpose                                             |
+| ----------------- | --------------- | --------------------------------------------------- |
+| `/ds-go` `/ds` `/zai` `/oc-zen` `/oc-thinking` | model-switcher | Switch model, or cycle a group |
+| `/context-limit`  | context-limit   | Show or set a working context budget                |
+| `/max`            | max-mode        | Set the default best-of-N count                     |
+| `best_of_n`       | max-mode        | Run candidates and return the judged winner         |
+| `/remember` `/memory` `/checkpoint` | memory | Write or read the memory files           |
+| `memory_read` `memory_append` `memory_search` | memory | Tool access to memory     |
+| `task`            | task-tool       | Add, update, list, or clear tree tasks              |
+| `/goal`           | goal            | Set, show, or clear the stopping condition          |
+| `/workflow`       | workflows       | Run a workflow, or list them                        |
+| `/loop`           | loop            | Register, list, or stop a recurring prompt          |
+| `/compose-next`   | compose-next    | Start the spec to ship workflow                     |
+| `/skip-permissions` | skip-permissions | Toggle auto-approve for this session             |
+| `/distill`        | distill         | Propose, list, or apply reusable artifacts          |
 
-## Waves and order
+## Limits and overrides
 
-| Wave | Features                  | Why                                        |
-| ---- | ------------------------- | ------------------------------------------ |
-| 1    | task tool, memory         | Foundation. compose-next assumes a tracker |
-| 2    | goal, workflow runner     | Autonomy. Both build on the task tool      |
-| 3    | loop, context-limit, skip-permissions, max mode, distill | Small, independent wins |
+- Goal, max mode, and distill call `ctx.generate.text`, which fails on OpenCode
+  Go with `Request is missing x-opencode-session`. Point them at a working model
+  with `GOAL_MODEL`, `MAX_MODE_MODEL`, and `DISTILL_MODEL`.
+- The workflow runner uses child sessions and inherits the invoking session's
+  model, so it needs no override.
+- One loop per session, because the turn-end event names the session, not the
+  run.
+- `skip-permissions` never overrides a deny. `context-limit` never raises a
+  window. `distill` writes only on an explicit apply and never overwrites.
 
-Build order: task tool, memory, goal, workflow runner, loop, context-limit,
-skip-permissions, max mode, distill.
-
-## Conventions for each port
+## Conventions
 
 - One repo per plugin, MIT licensed, with README, AGENTS.md, CONTRIBUTING.md,
-  LICENSE, and a NOTICE when content is adapted from MiMoCode.
+  LICENSE, and a NOTICE when content is adapted from another project.
 - Single-file, dependency-free plugin. Export a plain `{ id, setup }` object and
   use Bun globals. Do not import `@opencode/plugin`.
 - Tests with `bun test`.
-- Work through the compose-next workflow: spec, workspace, implement, verify,
+- Built through the compose-next workflow: spec, workspace, implement, verify,
   review with the `reviewer` subagent, finalize, then a pull request.
 
-## Source and license
+## Sources and license
 
-The features are inspired by MiMoCode (https://github.com/XiaomiMiMo/MiMo-Code),
-MIT, Copyright (c) 2026 MiMo Code, Xiaomi Corporation. MiMoCode also ships a
-`USE_RESTRICTIONS.md` and a trademark policy. Check both before copying any
-content, and keep attribution in a NOTICE file. This note is a flag, not legal
+Some plugins here are ports; each names its source and keeps the license notice
+in its `NOTICE` file. The first program ported from MiMoCode
+(https://github.com/XiaomiMiMo/MiMo-Code), MIT, Copyright (c) 2026 MiMo Code,
+Xiaomi Corporation. MiMoCode also ships a `USE_RESTRICTIONS.md` and a trademark
+policy. Check those before copying content. This note is a flag, not legal
 advice.
