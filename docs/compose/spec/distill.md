@@ -19,20 +19,23 @@ the strong candidates.
 
 ## [S2] Design
 
-A command proposes reusable artifacts from recent session history.
+A command proposes reusable artifacts from session history.
 
-- `/distill` gathers recent sessions for the current project with
-  `ctx.session.list` and reads their content with `ctx.session.context`.
+- The plugin session domain has no `list`; it exposes create, get, context,
+  prompt, and others. So `/distill` analyzes the current session by default and
+  any session ids the user names. Each is read with `ctx.session.context`.
 - A model, through `ctx.generate.text`, finds repeated multi-step patterns and
   returns candidate artifacts: a skill, a command, or a subagent, each with a
-  name, a purpose, and the steps it would encode.
+  name, a purpose, and the steps it would encode. The model defaults to the
+  session model; `DISTILL_MODEL` overrides it, since transient generation fails
+  on OpenCode Go.
 - The command prints the candidates and their confidence. Nothing is written
-  without user approval. A follow-up prompt lets the user pick which to write.
-- Approved artifacts are written under `~/.config/opencode/` (`skills/<name>/SKILL.md`,
-  `commands/<name>.md`, or `agents/<name>.md`) with the same frontmatter rules
-  the other ports use.
-- A candidate that repeats an existing skill or command is reported as a
-  duplicate, not written.
+  without approval. `/distill apply <n>` writes the chosen candidate.
+- Approved artifacts are written under `DISTILL_ROOT` (default
+  `~/.config/opencode/`): `skills/<name>/SKILL.md`, `commands/<name>.md`, or
+  `agents/<name>.md`.
+- A candidate whose target file already exists is reported as a duplicate, not
+  written.
 
 ## [S3] Out of Scope
 
@@ -43,13 +46,17 @@ A command proposes reusable artifacts from recent session history.
 
 ## Tasks
 
-- [ ] T1: history gathering with a size cap - acceptance: a fake-context test
-      collects recent sessions and truncates at the cap (covers: S2)
+- [x] T0: spike whether the plugin can list recent sessions - result: it cannot.
+  The plugin session domain has no `list` (create, get, context, prompt, and
+  others only). Distill analyzes the current session or explicitly named ids.
+- [ ] T1: transcript gathering with a size cap - acceptance: a fake-context test
+      collects the current session and named ids and truncates at the cap
+      (covers: S2)
 - [ ] T2: pattern detection and candidate parsing - acceptance: a stub model
       result parses into skills, commands, and agents with confidence (covers:
       S2; depends: T1)
-- [ ] T3: the approval prompt and the write step - acceptance: a test approves
-      one candidate, writes the file, and skips a duplicate (covers: S2;
-      depends: T2)
+- [ ] T3: the apply step and the write, with duplicate detection - acceptance: a
+      test approves one candidate, writes the file, and skips a duplicate
+      (covers: S2; depends: T2)
 - [ ] T4: README and NOTICE - acceptance: both files exist and name MiMoCode's
       distill feature (covers: S2; depends: T3)
