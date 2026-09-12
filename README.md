@@ -21,6 +21,36 @@ and [opencode-compose-next](https://github.com/jadmadi/opencode-compose-next).
 | 8 | Max mode         | docs/compose/spec/max-mode.md              | opencode-max-mode               | delivered |
 | 9 | Distill          | docs/compose/spec/distill.md               | opencode-distill                | delivered |
 
+## Repos
+
+- [opencode-task-tool](https://github.com/jadmadi/opencode-task-tool)
+- [opencode-memory](https://github.com/jadmadi/opencode-memory)
+- [opencode-goal](https://github.com/jadmadi/opencode-goal)
+- [opencode-workflows](https://github.com/jadmadi/opencode-workflows)
+- [opencode-loop](https://github.com/jadmadi/opencode-loop)
+- [opencode-context-limit](https://github.com/jadmadi/opencode-context-limit)
+- [opencode-skip-permissions](https://github.com/jadmadi/opencode-skip-permissions)
+- [opencode-max-mode](https://github.com/jadmadi/opencode-max-mode)
+- [opencode-distill](https://github.com/jadmadi/opencode-distill)
+
+## Daily use
+
+The ports register their commands and tools from
+`~/.config/opencode/plugins/`, so no config entry is needed.
+
+Goal, max mode, and distill call `ctx.generate.text`, which fails on OpenCode Go
+with `Request is missing x-opencode-session`. Point them at a working model from
+a separate terminal, because each command restarts the background service:
+
+```sh
+opencode2 service set env GOAL_MODEL deepseek/deepseek-flash
+opencode2 service set env MAX_MODE_MODEL deepseek/deepseek-flash
+opencode2 service set env DISTILL_MODEL deepseek/deepseek-flash
+```
+
+The workflow runner uses child sessions and inherits the invoking session's
+model, so it needs no override.
+
 ## Waves and order
 
 | Wave | Features                  | Why                                        |
