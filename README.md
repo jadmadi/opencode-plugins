@@ -2,8 +2,10 @@
 
 A home for OpenCode V2 plugins and tools: ports from other agent CLIs, and
 original tools. Each plugin lives in its own repo. This repo is the map: what
-exists, where it lives, and the conventions every plugin follows. Specs live
-under `docs/compose/spec/`.
+exists, where it lives, and the conventions every plugin follows. Design specs
+for the ports and sila-prime live under `docs/compose/spec/`; each plugin repo
+carries the delivered copy with its report. See `AGENTS.md` for how to keep this
+map current.
 
 ## Models
 
@@ -100,6 +102,8 @@ under `docs/compose/spec/`.
 - Tests with `bun test`.
 - Built through the compose-next workflow: spec, workspace, implement, verify,
   review with the `reviewer` subagent, finalize, then a pull request.
+- Adding, renaming, or changing a plugin means updating this map. The checklist
+  is in `AGENTS.md`.
 
 ## Sources and license
 
