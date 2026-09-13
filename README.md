@@ -21,6 +21,10 @@ under `docs/compose/spec/`.
 - [memory](https://github.com/jadmadi/opencode-memory): project memory,
   checkpoints, and notes, stored per project and injected at the start of a
   session. Registers read, append, and search tools plus three commands.
+- [sila-prime](https://github.com/jadmadi/opencode-sila-prime): runs
+  `sila prime` on the first prompt and injects the cross-tool briefing, so the
+  sila knowledge store primes OpenCode without the CLI. Registers a `/sila`
+  command for sila subcommands.
 - [task-tool](https://github.com/jadmadi/opencode-task-tool): a tree `task`
   tool (T1, T1.1) so multi-step work survives long turns and compaction.
 
@@ -57,6 +61,7 @@ under `docs/compose/spec/`.
 | `best_of_n`       | max-mode        | Run candidates and return the judged winner         |
 | `/remember` `/memory` `/checkpoint` | memory | Write or read the memory files           |
 | `memory_read` `memory_append` `memory_search` | memory | Tool access to memory     |
+| `/sila`           | sila-prime      | Run a sila subcommand (default: prime)              |
 | `task`            | task-tool       | Add, update, list, or clear tree tasks              |
 | `/goal`           | goal            | Set, show, or clear the stopping condition          |
 | `/workflow`       | workflows       | Run a workflow, or list them                        |
@@ -76,6 +81,15 @@ under `docs/compose/spec/`.
   run.
 - `skip-permissions` never overrides a deny. `context-limit` never raises a
   window. `distill` writes only on an explicit apply and never overwrites.
+- `sila-prime` calls the `sila` CLI. `SILA_BIN` points at the binary,
+  `SILA_PRIME=off` disables the first-prompt briefing, and `SILA_PRIME_BUDGET`
+  caps it. The session is marked after one attempt, so `/sila` refreshes on
+  demand.
+- sila's MCP server is configured in `~/.config/opencode/opencode.json` under
+  `mcp.servers.sila`, with a permission block that allows seven tools
+  (`prime_context`, `search_knowledge`, `search_messages`, `omni_search`,
+  `get_latest_handoff`, `save_handoff`, `save_memo`) and denies the rest, so 41
+  tools do not load into every prompt.
 
 ## Conventions
 
