@@ -43,7 +43,27 @@ design spec.
 - One plugin per bullet, with its full GitHub URL.
 - Changes through a branch and a pull request.
 
+## Versioning and releases
+
+- `package.json.version` is the source of truth. Each plugin exports `VERSION`
+  from its `.ts` file, and a test asserts the two match. Drift fails
+  `bun test`.
+- A status output ends with a line `<plugin> <version>` when the plugin has a
+  status surface: model-switcher, context-limit, loop, goal, max-mode,
+  skip-permissions, workflows, and distill. One-line status messages get the
+  same line after a newline.
+- Bump the minor for a feature, the patch for a fix, and the major for a
+  breaking config or command contract.
+- After a change merges to main, tag the repo `vX.Y.Z` and publish a GitHub
+  release with short notes.
+- Install docs keep the `main` URL and add one line: pin a release by replacing
+  `main` with a tag such as `v0.1.0`.
+- The first releases carry the current versions: model-switcher v0.4.0, every
+  other plugin v0.1.0.
+
 ## Releasing
 
 - Semantic commit messages.
 - Update this file when the map's process changes.
+- After a plugin change merges, bump its version, tag `vX.Y.Z`, and publish a
+  release. The versioning rules are above.
