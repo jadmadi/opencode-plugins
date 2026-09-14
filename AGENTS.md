@@ -36,6 +36,49 @@ with its report and journey log. Keep the two aligned when behavior changes; do
 not let them drift. model-switcher and compose-next are original tools with no
 design spec.
 
+## Runtime API baseline
+
+The plugins target the shipped OpenCode plugin API, not the website docs. The
+docs move ahead of releases, so `runtime-baseline.json` records what the
+plugins build against and `script/check-runtime-api.go` verifies it. Run the
+check before any change to a plugin's `ctx` usage, from this repo root:
+
+```sh
+go run script/check-runtime-api.go
+```
+
+- HOLD means the baseline still matches. Keep the plain `{ id, setup }` object
+  and `ctx.catalog`. Do not migrate to the docs.
+- MIGRATE means the runtime or the published package moved. Re-probe with the
+  steps below, then update the baseline and the plugins together.
+- UNKNOWN means the check could not reach the runtime or the registry. Do not
+  treat it as HOLD.
+
+Baseline as of 2026-09-14, OpenCode 2.0.3:
+
+- `ctx.catalog` carries the model and provider transforms.
+- `ctx.model` and `ctx.provider` do not exist, in the runtime or in the
+  published `@opencode/plugin@2.0.3` types.
+- `import { Plugin } from "@opencode/plugin"` does not resolve for local file
+  plugins. The package is published, but nothing installs it next to a raw
+  plugin file, and the server loader does not alias it. Only
+  `@opencode/plugin/tui` is aliased, for CLI plugins.
+
+Probe recipe when the check says MIGRATE:
+
+1. Drop a temporary plugin in `~/.config/opencode/plugins/` that writes
+   `typeof ctx.model`, `"provider" in ctx`, and `Object.keys(ctx.catalog)` to
+   a file. Touch it, read the file, then remove it.
+2. Drop a directory plugin importing `{ Plugin } from "@opencode/plugin"` and
+   see whether it loads.
+3. Record the results in `runtime-baseline.json`. If the import resolves and
+   `ctx.model` exists, migrate the plugins to `Plugin.define` and the
+   model/provider domains, bump minor versions, tag, and release.
+
+Known stale text: some plugin AGENTS.md files say npm only publishes dev
+snapshots of `@opencode/plugin`. That is no longer true. Fix the line when
+that repo is next changed.
+
 ## Conventions
 
 - Short lines, 80 to 110 characters, with H2 or larger headings.

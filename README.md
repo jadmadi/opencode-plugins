@@ -114,6 +114,9 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 - Version in `package.json` plus an exported `VERSION` constant, kept equal by
   a test. Releases are tagged `vX.Y.Z` on main after merge, with a GitHub
   release.
+- Runtime API baseline in `runtime-baseline.json`, checked by
+  `go run script/check-runtime-api.go` from the repo root. Run it before
+  changing any plugin's `ctx` usage.
 
 ## Sources and license
 
