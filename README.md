@@ -104,6 +104,9 @@ map current.
   review with the `reviewer` subagent, finalize, then a pull request.
 - Adding, renaming, or changing a plugin means updating this map. The checklist
   is in `AGENTS.md`.
+- Version in `package.json` plus an exported `VERSION` constant, kept equal by
+  a test. Releases are tagged `vX.Y.Z` on main after merge, with a GitHub
+  release.
 
 ## Sources and license
 
