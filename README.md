@@ -63,8 +63,8 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 ## Analytics
 
 - [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
-  six analysis skills (quality, kpis, diagnostics, business analysis,
-  validation, visualization) plus a status command.
+  a skills-only pack, no plugin. Six analysis skills: quality, kpis,
+  diagnostics, business analysis, validation, visualization.
 
 ## Commands and tools
 
@@ -84,7 +84,6 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 | `/compose-next`   | compose-next    | Start the spec to ship workflow                     |
 | `/skip-permissions` | skip-permissions | Toggle auto-approve for this session             |
 | `/distill`        | distill         | Propose, list, or apply reusable artifacts          |
-| `/data-analytics` | data-analytics  | Status and inbox (scaffold)                         |
 
 ## Limits and overrides
 
