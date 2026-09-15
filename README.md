@@ -60,6 +60,12 @@ https://opencode.ai/go?ref=N9H3ZEP22A
   workflows in session history and propose skills, commands, or subagents.
   Nothing is written until an explicit apply, and nothing is overwritten.
 
+## Analytics
+
+- [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
+  a skills-only pack, no plugin. Six analysis skills: quality, kpis,
+  diagnostics, business analysis, validation, visualization.
+
 ## Commands and tools
 
 | Name              | Plugin          | Purpose                                             |
