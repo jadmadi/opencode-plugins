@@ -63,8 +63,9 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 ## Analytics
 
 - [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
-  a skills-only pack, no plugin. Six analysis skills: quality, kpis,
-  diagnostics, business analysis, validation, visualization.
+  a skills-only pack, no plugin. Six analysis skills under a `da-` prefix:
+  `/da-analyze-data-quality`, `/da-design-kpis`, `/da-metric-diagnostics`,
+  `/da-product-biz-analysis`, `/da-validate-data`, `/da-visualize-data`.
 
 ## Commands and tools
 
