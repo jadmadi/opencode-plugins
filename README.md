@@ -60,6 +60,11 @@ https://opencode.ai/go?ref=N9H3ZEP22A
   workflows in session history and propose skills, commands, or subagents.
   Nothing is written until an explicit apply, and nothing is overwritten.
 
+## Analytics
+
+- [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
+  status command scaffold; the real surface grows out of skills in `tmp/`.
+
 ## Commands and tools
 
 | Name              | Plugin          | Purpose                                             |
@@ -78,6 +83,7 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 | `/compose-next`   | compose-next    | Start the spec to ship workflow                     |
 | `/skip-permissions` | skip-permissions | Toggle auto-approve for this session             |
 | `/distill`        | distill         | Propose, list, or apply reusable artifacts          |
+| `/data-analytics` | data-analytics  | Status and inbox (scaffold)                         |
 
 ## Limits and overrides
 
