@@ -63,7 +63,8 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 ## Analytics
 
 - [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
-  status command scaffold; the real surface grows out of skills in `tmp/`.
+  six analysis skills (quality, kpis, diagnostics, business analysis,
+  validation, visualization) plus a status command.
 
 ## Commands and tools
 
