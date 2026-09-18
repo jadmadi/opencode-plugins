@@ -188,5 +188,5 @@ func main() {
 	fmt.Printf("  installed opencode: %s\n", installed)
 	fmt.Printf("  npm @opencode/plugin: %s (%s API)\n", info.Version, api)
 	fmt.Printf("  baseline: %s %s, checked %s\n", base.Runtime, base.API, base.Checked)
-	fmt.Println("  Keep the plain { id, setup } object and ctx.catalog. Do not migrate to the docs yet.")
+	fmt.Println("  Keep the plain { id, setup } object and the domains the baseline names.")
 }

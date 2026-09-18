@@ -1,6 +1,6 @@
 {
-  "runtime": "2.0.3",
-  "api": "catalog",
-  "checked": "2026-09-14",
-  "note": "ctx.catalog.model and ctx.catalog.provider carry the model transforms. ctx.model and ctx.provider do not exist. The import { Plugin } from \"@opencode/plugin\" does not resolve for local file plugins; only @opencode/plugin/tui is aliased, for CLI plugins."
+  "runtime": "2.0.7",
+  "api": "model-provider",
+  "checked": "2026-09-18",
+  "note": "ctx.model carries model reads and transforms; ctx.provider carries provider reads and transforms. Both use transform(editor) callbacks. ctx.catalog does not exist. The import { Plugin } from \"@opencode/plugin\" does not resolve for local file plugins; only @opencode/plugin/tui is aliased, for CLI plugins."
 }

@@ -48,17 +48,18 @@ go run script/check-runtime-api.go
 ```
 
 - HOLD means the baseline still matches. Keep the plain `{ id, setup }` object
-  and `ctx.catalog`. Do not migrate to the docs.
+  and the domains the baseline names.
 - MIGRATE means the runtime or the published package moved. Re-probe with the
   steps below, then update the baseline and the plugins together.
 - UNKNOWN means the check could not reach the runtime or the registry. Do not
   treat it as HOLD.
 
-Baseline as of 2026-09-14, OpenCode 2.0.3:
+Baseline as of 2026-09-18, OpenCode 2.0.7:
 
-- `ctx.catalog` carries the model and provider transforms.
-- `ctx.model` and `ctx.provider` do not exist, in the runtime or in the
-  published `@opencode/plugin@2.0.3` types.
+- `ctx.model` carries model reads and transforms, and `ctx.provider` carries
+  provider reads and transforms. Both take `transform(editor)` callbacks.
+- `ctx.catalog` does not exist. Migrate `ctx.catalog.model.*` to
+  `ctx.model.*` and `ctx.catalog.provider.*` to `ctx.provider.*`.
 - `import { Plugin } from "@opencode/plugin"` does not resolve for local file
   plugins. The package is published, but nothing installs it next to a raw
   plugin file, and the server loader does not alias it. Only
@@ -67,13 +68,15 @@ Baseline as of 2026-09-14, OpenCode 2.0.3:
 Probe recipe when the check says MIGRATE:
 
 1. Drop a temporary plugin in `~/.config/opencode/plugins/` that writes
-   `typeof ctx.model`, `"provider" in ctx`, and `Object.keys(ctx.catalog)` to
-   a file. Touch it, read the file, then remove it.
+   `typeof ctx.catalog`, `typeof ctx.model`, `typeof ctx.provider`, and the
+   member keys of each domain to a file. Touch it, read the file, then remove
+   it.
 2. Drop a directory plugin importing `{ Plugin } from "@opencode/plugin"` and
    see whether it loads.
-3. Record the results in `runtime-baseline.json`. If the import resolves and
-   `ctx.model` exists, migrate the plugins to `Plugin.define` and the
-   model/provider domains, bump minor versions, tag, and release.
+3. Record the results in `runtime-baseline.json`. Migrate the plugins to the
+   domains the runtime exposes. If the import resolves, also migrate to
+   `Plugin.define` and the model/provider domains. Bump versions, tag, and
+   release after the fixes land.
 
 Known stale text: some plugin AGENTS.md files say npm only publishes dev
 snapshots of `@opencode/plugin`. That is no longer true. Fix the line when
