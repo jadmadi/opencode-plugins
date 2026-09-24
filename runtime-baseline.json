@@ -1,6 +1,6 @@
 {
-  "runtime": "2.0.7",
+  "runtime": "2.0.16",
   "api": "model-provider",
-  "checked": "2026-09-18",
-  "note": "ctx.model carries model reads and transforms; ctx.provider carries provider reads and transforms. Both use transform(editor) callbacks. ctx.catalog does not exist. The import { Plugin } from \"@opencode/plugin\" does not resolve for local file plugins; only @opencode/plugin/tui is aliased, for CLI plugins."
+  "checked": "2026-09-25",
+  "note": "Re-probed on 2.0.16. ctx.model carries model reads and transforms (members: default, list, reload, transform); ctx.provider carries provider reads and transforms (members: get, list, reload, transform). ctx.catalog is undefined. The import { Plugin } from \"@opencode/plugin\" still does not resolve for local file plugins on 2.0.16 (a probe plugin failed with Cannot find package '@opencode/plugin'); only @opencode/plugin/tui is aliased, for CLI plugins. Keep the plain { id, setup } object."
 }

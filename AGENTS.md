@@ -54,16 +54,20 @@ go run script/check-runtime-api.go
 - UNKNOWN means the check could not reach the runtime or the registry. Do not
   treat it as HOLD.
 
-Baseline as of 2026-09-18, OpenCode 2.0.7:
+Baseline as of 2026-09-25, OpenCode 2.0.16 (re-probed):
 
-- `ctx.model` carries model reads and transforms, and `ctx.provider` carries
-  provider reads and transforms. Both take `transform(editor)` callbacks.
+- `ctx.model` carries model reads and transforms (members: `default`, `list`,
+  `reload`, `transform`), and `ctx.provider` carries provider reads and
+  transforms (members: `get`, `list`, `reload`, `transform`). Both take
+  `transform(editor)` callbacks.
 - `ctx.catalog` does not exist. Migrate `ctx.catalog.model.*` to
   `ctx.model.*` and `ctx.catalog.provider.*` to `ctx.provider.*`.
 - `import { Plugin } from "@opencode/plugin"` does not resolve for local file
-  plugins. The package is published, but nothing installs it next to a raw
-  plugin file, and the server loader does not alias it. Only
-  `@opencode/plugin/tui` is aliased, for CLI plugins.
+  plugins. Re-probed on 2.0.16: a directory plugin importing it fails to load
+  with `Cannot find package '@opencode/plugin'`. The build docs use that import
+  in their example, so the docs are ahead of the runtime. Keep the plain
+  `{ id, setup }` object. Only `@opencode/plugin/tui` is aliased, for CLI
+  plugins.
 
 Probe recipe when the check says MIGRATE:
 
