@@ -92,6 +92,8 @@ that repo is next changed.
 - No bold and no em dashes.
 - One plugin per bullet, with its full GitHub URL.
 - Changes through a branch and a pull request.
+- Plugin repos carry no agent provisioning: no `.cursor/`, `.devin/`,
+  `CLAUDE.md`, `goals/`, or private files.
 
 ## Versioning and releases
 
