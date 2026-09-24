@@ -33,7 +33,7 @@
       "artifact": "model-switcher.ts",
       "installedPath": "~/.config/opencode/plugins/model-switcher.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.5.0",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -107,7 +107,7 @@
       "artifact": "context-limit.ts",
       "installedPath": "~/.config/opencode/plugins/context-limit.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -145,7 +145,7 @@
       "artifact": "max-mode.ts",
       "installedPath": "~/.config/opencode/plugins/max-mode.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -185,7 +185,7 @@
       "artifact": "memory.ts",
       "installedPath": "~/.config/opencode/plugins/memory.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -236,7 +236,7 @@
       "artifact": "opencode-sila/",
       "installedPath": "~/.config/opencode/plugins/opencode-sila",
       "version": "2026.9.0",
-      "latestTag": null,
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -294,7 +294,7 @@
       "artifact": "sila-prime.ts",
       "installedPath": "~/.config/opencode/plugins/sila-prime.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -332,7 +332,7 @@
       "artifact": "task-tool.ts",
       "installedPath": "~/.config/opencode/plugins/task-tool.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [],
@@ -367,7 +367,7 @@
       "artifact": "goal.ts",
       "installedPath": "~/.config/opencode/plugins/goal.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -405,7 +405,7 @@
       "artifact": "workflows.ts",
       "installedPath": "~/.config/opencode/plugins/workflows.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -443,7 +443,7 @@
       "artifact": "loop.ts",
       "installedPath": "~/.config/opencode/plugins/loop.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -482,7 +482,7 @@
       "artifact": "compose-next.ts",
       "installedPath": "~/.config/opencode/plugins/compose-next.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -519,7 +519,7 @@
       "artifact": "skip-permissions.ts",
       "installedPath": "~/.config/opencode/plugins/skip-permissions.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -557,7 +557,7 @@
       "artifact": "distill.ts",
       "installedPath": "~/.config/opencode/plugins/distill.ts",
       "version": "2026.9.0",
-      "latestTag": "v0.1.2",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [
@@ -594,7 +594,7 @@
       "artifact": "skills/",
       "installedPath": null,
       "version": "2026.9.0",
-      "latestTag": "v0.5.0",
+      "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
       "license": "MIT",
       "commands": [],
