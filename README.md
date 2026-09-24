@@ -20,7 +20,7 @@ https://opencode.ai/go?ref=N9H3ZEP22A
   commands that switch provider and model mid-session. The command set comes
   from a user JSON file, so anyone can add their own.
 - [context-limit](https://github.com/jadmadi/opencode-context-limit): a working
-  context budget per model. It lowers the model window through a catalog
+  context budget per model. It lowers the model window through a model
   transform, so compaction fires earlier. It can only lower a window.
 - [max-mode](https://github.com/jadmadi/opencode-max-mode): a `best_of_n` tool
   that runs 2 to 8 candidate answers in parallel and a judge picks the winner.
