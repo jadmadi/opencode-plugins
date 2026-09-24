@@ -1,0 +1,610 @@
+{
+  "meta": {
+    "title": "Jad Madi's OpenCode plugins",
+    "description": "Every OpenCode V2 plugin and skills pack, with what it is, what it solves, and where it lives.",
+    "generated": "2026-09-25",
+    "root": "/mnt/Jad/github/projects/jadmadi/oc-plugins",
+    "owner": "jadmadi",
+    "count": 14,
+    "map": "opencode-plugins",
+    "mapRepo": "https://github.com/jadmadi/opencode-plugins",
+    "note": "Entries with \"published\": false are private repos. A public site should skip them, or link them only where the reader has access.",
+    "installNote": "installCommand is the Git distribution path. This machine already has these plugins installed by copy or symlink, so do not run both or the plugin loads twice.",
+    "versioning": "CalVer YYYY.MM.MICRO (year.month.release counter; micro starts at 0), for example 2026.9.0."
+  },
+  "plugins": [
+    {
+      "name": "model-switcher",
+      "title": "Model Switcher",
+      "category": "Models",
+      "summary": "Slash commands that switch provider and model mid-session, resolved against the live model catalog.",
+      "problem": "Mid-session model choice is manual: you need the exact provider and model id, and there is no quick view of what fits an intent such as free, cheap, fast, or vision.",
+      "tags": [
+        "models",
+        "providers",
+        "commands"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-model-switcher",
+      "repoName": "opencode-model-switcher",
+      "directory": "opencode-model-switcher",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "model-switcher.ts",
+      "installedPath": "~/.config/opencode/plugins/model-switcher.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.5.0",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/model",
+          "description": "Show the current model and switch by reference or group."
+        },
+        {
+          "name": "/free",
+          "description": "Cycle models that cost nothing."
+        },
+        {
+          "name": "/cheap",
+          "description": "Cycle paid models, cheapest first."
+        },
+        {
+          "name": "/think",
+          "description": "Cycle reasoning models."
+        },
+        {
+          "name": "/vision",
+          "description": "Cycle models that accept images."
+        },
+        {
+          "name": "/long",
+          "description": "Cycle models with a 400k+ context window."
+        },
+        {
+          "name": "/newest",
+          "description": "Cycle the newest models."
+        },
+        {
+          "name": "/muse",
+          "description": "Cycle Muse models."
+        },
+        {
+          "name": "/glm",
+          "description": "Cycle GLM models."
+        },
+        {
+          "name": "/nvid",
+          "description": "Cycle NVIDIA models."
+        }
+      ],
+      "tools": [],
+      "limits": "The command set and pins come from ~/.config/opencode/model-switcher.json. No model ids are hard-coded.",
+      "install": "Copy model-switcher.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-model-switcher",
+      "previousVersion": "0.5.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-model-switcher/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "context-limit",
+      "title": "Context Limit",
+      "category": "Models",
+      "summary": "Sets a per-model working context budget by lowering the model window, so compaction fires before quality drops.",
+      "problem": "A model's advertised window is larger than its useful working window, and one global compaction threshold is either too late for small models or too eager for large ones.",
+      "tags": [
+        "context",
+        "compaction",
+        "budget",
+        "models"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-context-limit",
+      "repoName": "opencode-context-limit",
+      "directory": "opencode-context-limit",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "context-limit.ts",
+      "installedPath": "~/.config/opencode/plugins/context-limit.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/context-limit",
+          "description": "Show or set a working context budget for a model or pattern."
+        }
+      ],
+      "tools": [],
+      "limits": "It can only lower a model window, never raise it.",
+      "install": "Copy context-limit.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-context-limit",
+      "previousVersion": "0.1.3",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-context-limit/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "max-mode",
+      "title": "Max Mode",
+      "category": "Models",
+      "summary": "Runs 2 to 8 candidate answers in parallel for a hard question and returns the one a judge picks.",
+      "problem": "Hard prompts benefit from several attempts, but generating them one at a time and comparing them by hand is slow and hides the reasoning.",
+      "tags": [
+        "best-of-n",
+        "judge",
+        "quality",
+        "models"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-max-mode",
+      "repoName": "opencode-max-mode",
+      "directory": "opencode-max-mode",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "max-mode.ts",
+      "installedPath": "~/.config/opencode/plugins/max-mode.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/max",
+          "description": "Set the default best-of-N candidate count for the session."
+        }
+      ],
+      "tools": [
+        "best_of_n"
+      ],
+      "limits": "Cost multiplies with the candidate count. It calls ctx.generate.text, so set MAX_MODE_MODEL on providers that reject transient generation.",
+      "install": "Copy max-mode.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-max-mode",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-max-mode/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "memory",
+      "title": "Memory",
+      "category": "Sessions and memory",
+      "summary": "Keeps per-project memory, checkpoints, and notes, injects a budgeted slice at session start, and exposes read, append, and search tools.",
+      "problem": "Sessions and compaction lose context; decisions, file state, and next steps need a durable project store that survives both.",
+      "tags": [
+        "memory",
+        "checkpoints",
+        "session",
+        "notes"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-memory",
+      "repoName": "opencode-memory",
+      "directory": "opencode-memory",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "memory.ts",
+      "installedPath": "~/.config/opencode/plugins/memory.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/remember",
+          "description": "Append a line to MEMORY.md."
+        },
+        {
+          "name": "/memory",
+          "description": "Show the three memory files."
+        },
+        {
+          "name": "/checkpoint",
+          "description": "Write a memory checkpoint now."
+        }
+      ],
+      "tools": [
+        "memory_read",
+        "memory_append",
+        "memory_search"
+      ],
+      "limits": "Files live under the OpenCode data dir per project. MEMORY_ROOT and MEMORY_BUDGET override location and size. A checkpoint is written on compaction.",
+      "install": "Copy memory.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-memory",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-memory/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "sila",
+      "title": "Sila Sidebar",
+      "category": "Sessions and memory",
+      "summary": "Puts sila goals, the bound goal and its tasks, and open handoff items in the TUI sidebar, with commands to focus, claim, release, report, open, and toggle tasks.",
+      "problem": "Goal and task state lives in the sila store, out of sight while you work, and acting on it means leaving the TUI for the shell.",
+      "tags": [
+        "sila",
+        "sidebar",
+        "goals",
+        "tasks",
+        "tui"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-sila",
+      "repoName": "opencode-sila",
+      "directory": "opencode-sila",
+      "visibility": "private",
+      "published": false,
+      "installed": true,
+      "artifact": "opencode-sila/",
+      "installedPath": "~/.config/opencode/plugins/opencode-sila",
+      "version": "2026.9.0",
+      "latestTag": null,
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/sila-focus",
+          "description": "Bind this session to a goal and claim it when free."
+        },
+        {
+          "name": "/sila-open",
+          "description": "Open the bound goal's goal.md with $SILA_EDITOR."
+        },
+        {
+          "name": "/sila-claim",
+          "description": "Claim the bound goal for this session."
+        },
+        {
+          "name": "/sila-release",
+          "description": "Release the bound goal when this agent holds it."
+        },
+        {
+          "name": "/sila-report",
+          "description": "Record a progress note on the bound goal."
+        },
+        {
+          "name": "/sila-task",
+          "description": "Toggle a numbered task on the bound goal."
+        }
+      ],
+      "tools": [],
+      "limits": "Read-only except explicit actions. Release refuses another agent's claim, and one session binds to one goal per repo. Env: SILA_BIN, SILA_POLL_MS, SILA_MAX_GOALS, SILA_MAX_TASKS, SILA_EDITOR.",
+      "install": "Symlink the repo into ~/.config/opencode/plugins/opencode-sila (the repo's script/install does this).",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-sila",
+      "previousVersion": "0.7.0",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-sila/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "sila-prime",
+      "title": "Sila Prime",
+      "category": "Sessions and memory",
+      "summary": "Runs sila prime on the first prompt and injects the cross-tool briefing, plus a /sila command for any sila subcommand.",
+      "problem": "Each session starts without the sila knowledge store unless you remember to run the CLI first.",
+      "tags": [
+        "sila",
+        "knowledge",
+        "session",
+        "context"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-sila-prime",
+      "repoName": "opencode-sila-prime",
+      "directory": "opencode-sila-prime",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "sila-prime.ts",
+      "installedPath": "~/.config/opencode/plugins/sila-prime.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/sila",
+          "description": "Run a sila subcommand and post the output (default: prime)."
+        }
+      ],
+      "tools": [],
+      "limits": "Calls the sila CLI. SILA_BIN points at the binary, SILA_PRIME=off disables the briefing, and SILA_PRIME_BUDGET caps it. The session is marked after one attempt, so /sila refreshes on demand.",
+      "install": "Copy sila-prime.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-sila-prime",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-sila-prime/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "task-tool",
+      "title": "Task Tool",
+      "category": "Sessions and memory",
+      "summary": "A tree task tool with stable T1, T1.1 ids that survive long turns and compaction.",
+      "problem": "Multi-step work loses its structure in long sessions, and ad hoc lists renumber or disappear when the context compacts.",
+      "tags": [
+        "tasks",
+        "planning",
+        "todo",
+        "session"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-task-tool",
+      "repoName": "opencode-task-tool",
+      "directory": "opencode-task-tool",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "task-tool.ts",
+      "installedPath": "~/.config/opencode/plugins/task-tool.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [],
+      "tools": [
+        "task"
+      ],
+      "limits": "State is per session and ids never renumber.",
+      "install": "Copy task-tool.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-task-tool",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-task-tool/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "goal",
+      "title": "Goal",
+      "category": "Autonomy and workflow",
+      "summary": "Sets a judged stopping condition per session: at turn end a separate judge decides whether the goal is met, and the plugin continues with a nudge or gives up at a cap.",
+      "problem": "An agent decides it is done on its own, so a stopping condition needs an independent check to avoid ending early or running away.",
+      "tags": [
+        "goals",
+        "autonomy",
+        "judge",
+        "session"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-goal",
+      "repoName": "opencode-goal",
+      "directory": "opencode-goal",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "goal.ts",
+      "installedPath": "~/.config/opencode/plugins/goal.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/goal",
+          "description": "Set, show, or clear the judged stopping condition for this session."
+        }
+      ],
+      "tools": [],
+      "limits": "It calls ctx.generate.text, so set GOAL_MODEL on providers that reject transient generation. Continuations are capped by GOAL_MAX (default 5).",
+      "install": "Copy goal.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-goal",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-goal/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "workflows",
+      "title": "Workflows",
+      "category": "Autonomy and workflow",
+      "summary": "Runs deterministic multi-agent workflows with resumable artifacts. Ships deep-research from brief to review.",
+      "problem": "Multi-phase work such as research is repeated ad hoc, with no fixed order, no artifacts, and no way to resume a run.",
+      "tags": [
+        "workflow",
+        "agents",
+        "research",
+        "artifacts"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-workflows",
+      "repoName": "opencode-workflows",
+      "directory": "opencode-workflows",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "workflows.ts",
+      "installedPath": "~/.config/opencode/plugins/workflows.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/workflow",
+          "description": "Run a workflow by name, or list the available workflows."
+        }
+      ],
+      "tools": [],
+      "limits": "Uses child sessions and inherits the invoking session's model, so it needs no override. Runs are resumable from artifacts under the data dir.",
+      "install": "Copy workflows.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-workflows",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-workflows/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "loop",
+      "title": "Loop",
+      "category": "Autonomy and workflow",
+      "summary": "Runs a prompt on a fixed cadence, skipping a tick while the previous run is still active.",
+      "problem": "Recurring checks need a timer, but naive timers fire while the last run is still going and pile work up.",
+      "tags": [
+        "loop",
+        "schedule",
+        "cadence",
+        "autonomy"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-loop",
+      "repoName": "opencode-loop",
+      "directory": "opencode-loop",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "loop.ts",
+      "installedPath": "~/.config/opencode/plugins/loop.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/loop",
+          "description": "Register, list, or stop a recurring prompt on a fixed cadence."
+        }
+      ],
+      "tools": [],
+      "limits": "One loop per session, because the turn-end event names the session, not the run.",
+      "install": "Copy loop.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-loop",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-loop/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "compose-next",
+      "title": "Compose Next",
+      "category": "Autonomy and workflow",
+      "summary": "A spec-to-ship workflow as a skill: grill, spec, workspace, implement, verify, review, finalize, finish, with a read-only reviewer.",
+      "problem": "Work that jumps straight to code skips design and review; the path from idea to a merged change needs a repeatable order and an independent reviewer.",
+      "tags": [
+        "workflow",
+        "skill",
+        "spec",
+        "review",
+        "agents"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-compose-next",
+      "repoName": "opencode-compose-next",
+      "directory": "opencode-compose-next",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "compose-next.ts",
+      "installedPath": "~/.config/opencode/plugins/compose-next.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/compose-next",
+          "description": "Start the spec-to-ship workflow and attach the compose-next skill."
+        }
+      ],
+      "tools": [],
+      "limits": "Needs the compose-next skill installed under ~/.config/opencode/skills/compose-next/SKILL.md.",
+      "install": "Copy compose-next.ts into ~/.config/opencode/plugins/ and the skill into ~/.config/opencode/skills/.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-compose-next",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-compose-next/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "skip-permissions",
+      "title": "Skip Permissions",
+      "category": "Safety",
+      "summary": "Upgrades permission ask decisions to allow for one session through a permission hook.",
+      "problem": "Approval prompts interrupt trusted work in a session you already control, adding friction without adding safety.",
+      "tags": [
+        "permissions",
+        "safety",
+        "autonomy"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-skip-permissions",
+      "repoName": "opencode-skip-permissions",
+      "directory": "opencode-skip-permissions",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "skip-permissions.ts",
+      "installedPath": "~/.config/opencode/plugins/skip-permissions.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/skip-permissions",
+          "description": "Toggle auto-approval of ask decisions for this session, or show the state."
+        }
+      ],
+      "tools": [],
+      "limits": "It only upgrades an ask to an allow. A configured deny is final and never reaches the hook.",
+      "install": "Copy skip-permissions.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-skip-permissions",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-skip-permissions/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "distill",
+      "title": "Distill",
+      "category": "Safety",
+      "summary": "Finds repeated multi-step workflows in session history and proposes a skill, command, or subagent for them.",
+      "problem": "The same procedure gets repeated by hand instead of becoming a reusable artifact, and nothing should be written until you apply it.",
+      "tags": [
+        "distill",
+        "skills",
+        "workflow-capture",
+        "history"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-distill",
+      "repoName": "opencode-distill",
+      "directory": "opencode-distill",
+      "visibility": "public",
+      "published": true,
+      "installed": true,
+      "artifact": "distill.ts",
+      "installedPath": "~/.config/opencode/plugins/distill.ts",
+      "version": "2026.9.0",
+      "latestTag": "v0.1.2",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [
+        {
+          "name": "/distill",
+          "description": "Propose reusable artifacts from session history, list proposals, or apply one."
+        }
+      ],
+      "tools": [],
+      "limits": "Writes only on an explicit /distill apply and never overwrites an existing artifact. It calls ctx.generate.text, so set DISTILL_MODEL on providers that reject transient generation.",
+      "install": "Copy distill.ts into ~/.config/opencode/plugins/ and restart the TUI.",
+      "installCommand": "opencode plugin add github:jadmadi/opencode-distill",
+      "previousVersion": "0.1.2",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-distill/blob/main/CHANGELOG.md"
+    },
+    {
+      "name": "data-analytics",
+      "title": "Data Analytics Skills",
+      "category": "Skills pack",
+      "summary": "Six data-analysis skills that load by intent: data quality, KPI design, metric diagnostics, product and business analysis, validation, and visualization.",
+      "problem": "Analytics work repeats the same validation, KPI, diagnostics, and charting steps without a shared, reusable procedure.",
+      "tags": [
+        "data",
+        "analytics",
+        "skills"
+      ],
+      "repo": "https://github.com/jadmadi/opencode-data-analytics",
+      "repoName": "opencode-data-analytics",
+      "directory": "opencode-data-analytics",
+      "visibility": "private",
+      "published": false,
+      "installed": false,
+      "artifact": "skills/",
+      "installedPath": null,
+      "version": "2026.9.0",
+      "latestTag": "v0.5.0",
+      "updated": "2026-09-25",
+      "license": "MIT",
+      "commands": [],
+      "tools": [],
+      "limits": "A skills pack, not a plugin. It ships six skills: da-analyze-data-quality, da-design-kpis, da-metric-diagnostics, da-product-biz-analysis, da-validate-data, da-visualize-data.",
+      "install": "Copy the skills/ directory into ~/.config/opencode/skills/ (or .opencode/skills/ for one project).",
+      "installCommand": "git clone https://github.com/jadmadi/opencode-data-analytics && cp -r opencode-data-analytics/skills/* ~/.config/opencode/skills/",
+      "previousVersion": "0.5.0",
+      "versionScheme": "calver",
+      "changelog": "https://github.com/jadmadi/opencode-data-analytics/blob/main/CHANGELOG.md"
+    }
+  ]
+}

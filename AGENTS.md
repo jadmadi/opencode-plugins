@@ -77,10 +77,10 @@ Probe recipe when the check says MIGRATE:
    it.
 2. Drop a directory plugin importing `{ Plugin } from "@opencode/plugin"` and
    see whether it loads.
-3. Record the results in `runtime-baseline.json`. Migrate the plugins to the
-   domains the runtime exposes. If the import resolves, also migrate to
-   `Plugin.define` and the model/provider domains. Bump versions, tag, and
-   release after the fixes land.
+3. Record the results in `runtime-baseline.json`. If the import resolves and
+   `ctx.model` exists, migrate the plugins to `Plugin.define` and the
+   model/provider domains, then bump versions, update the changelog, tag, and
+   release.
 
 Known stale text: some plugin AGENTS.md files say npm only publishes dev
 snapshots of `@opencode/plugin`. That is no longer true. Fix the line when
@@ -102,18 +102,22 @@ that repo is next changed.
   status surface: model-switcher, context-limit, loop, goal, max-mode,
   skip-permissions, workflows, and distill. One-line status messages get the
   same line after a newline.
-- Bump the minor for a feature, the patch for a fix, and the major for a
-  breaking config or command contract.
-- After a change merges to main, tag the repo `vX.Y.Z` and publish a GitHub
-  release with short notes.
+- Versions use CalVer `YYYY.MM.MICRO`: year, month, and a release counter that
+  starts at 0, for example `2026.9.0`. Do not zero-pad the month or the counter,
+  so the value stays valid semver.
+- Bump the micro for each release within a month. The year and month follow the
+  calendar.
+- `CHANGELOG.md` records each release. Add an entry under the new version when
+  you bump it.
+- After a change merges to main, tag the repo `v<version>` (for example
+  `v2026.9.0`) and publish a GitHub release with short notes.
 - Install docs keep the `main` URL and add one line: pin a release by replacing
-  `main` with a tag such as `v0.1.0`.
-- The first releases carry the current versions: model-switcher v0.4.0, every
-  other plugin v0.1.0.
+  `main` with a tag such as `v2026.9.0`.
+- The first CalVer release is `2026.9.0` for every plugin.
 
 ## Releasing
 
 - Semantic commit messages.
 - Update this file when the map's process changes.
-- After a plugin change merges, bump its version, tag `vX.Y.Z`, and publish a
-  release. The versioning rules are above.
+- After a plugin change merges, bump its version, update `CHANGELOG.md`, tag
+  `v<version>`, and publish a release. The versioning rules are above.
