@@ -4,8 +4,8 @@ A home for OpenCode V2 plugins and tools: ports from other agent CLIs, and
 original tools. Each plugin lives in its own repo. This repo is the map: what
 exists, where it lives, and the conventions every plugin follows. Design specs
 for the ports and sila-prime live under `docs/compose/spec/`; each plugin repo
-carries the delivered copy with its report. See `AGENTS.md` for how to keep this
-map current.
+carries the delivered copy with its report. The machine-readable index is
+`plugins.json`. See `AGENTS.md` for how to keep this map current.
 
 ## OpenCode
 
@@ -112,8 +112,8 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 - Adding, renaming, or changing a plugin means updating this map. The checklist
   is in `AGENTS.md`.
 - Version in `package.json` plus an exported `VERSION` constant, kept equal by
-  a test. Releases are tagged `vX.Y.Z` on main after merge, with a GitHub
-  release.
+  a test. Releases use CalVer `YYYY.MM.MICRO` and are tagged `v<version>` on
+  main after merge, with a GitHub release. See `AGENTS.md`.
 - Runtime API baseline in `runtime-baseline.json`, checked by
   `go run script/check-runtime-api.go` from the repo root. Run it before
   changing any plugin's `ctx` usage.
