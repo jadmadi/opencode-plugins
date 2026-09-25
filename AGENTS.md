@@ -94,12 +94,19 @@ that repo is next changed.
 - Changes through a branch and a pull request.
 - Plugin repos carry no agent provisioning: no `.cursor/`, `.devin/`,
   `CLAUDE.md`, `goals/`, or private files.
+- `main` is the published channel for `github:` installs: every commit reaches
+  users. Merge only when the tests pass.
+- Plugins carry no dependencies. The test run writes `aube-lock.yaml`; ignore
+  it, do not commit it.
 
 ## Versioning and releases
 
 - `package.json.version` is the source of truth. Each plugin exports `VERSION`
   from its `.ts` file, and a test asserts the two match. Drift fails
   `bun test`.
+- Each release records the OpenCode version it was built and tested under, as
+  `builtUnder` in `package.json` plus a `builtUnder-<version>` tag, for example
+  `builtUnder-2.0.16`.
 - A status output ends with a line `<plugin> <version>` when the plugin has a
   status surface: model-switcher, context-limit, loop, goal, max-mode,
   skip-permissions, workflows, and distill. One-line status messages get the
