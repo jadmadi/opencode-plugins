@@ -8,6 +8,7 @@
     "count": 14,
     "map": "opencode-plugins",
     "mapRepo": "https://github.com/jadmadi/opencode-plugins",
+    "url": "https://jadmadi.net/projects/opencode-plugins/",
     "note": "Entries with \"published\": false are private repos. A public site should skip them, or link them only where the reader has access.",
     "installNote": "installCommand is the Git distribution path. This machine already has these plugins installed by copy or symlink, so do not run both or the plugin loads twice.",
     "versioning": "CalVer YYYY.MM.MICRO (year.month.release counter; micro starts at 0), for example 2026.9.0."
@@ -24,6 +25,7 @@
         "providers",
         "commands"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/model-switcher/",
       "repo": "https://github.com/jadmadi/opencode-model-switcher",
       "repoName": "opencode-model-switcher",
       "directory": "opencode-model-switcher",
@@ -100,6 +102,7 @@
         "budget",
         "models"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/context-limit/",
       "repo": "https://github.com/jadmadi/opencode-context-limit",
       "repoName": "opencode-context-limit",
       "directory": "opencode-context-limit",
@@ -140,6 +143,7 @@
         "quality",
         "models"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/max-mode/",
       "repo": "https://github.com/jadmadi/opencode-max-mode",
       "repoName": "opencode-max-mode",
       "directory": "opencode-max-mode",
@@ -182,6 +186,7 @@
         "session",
         "notes"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/memory/",
       "repo": "https://github.com/jadmadi/opencode-memory",
       "repoName": "opencode-memory",
       "directory": "opencode-memory",
@@ -235,6 +240,7 @@
         "tasks",
         "tui"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/sila/",
       "repo": "https://github.com/jadmadi/opencode-sila",
       "repoName": "opencode-sila",
       "directory": "opencode-sila",
@@ -295,6 +301,7 @@
         "session",
         "context"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/sila-prime/",
       "repo": "https://github.com/jadmadi/opencode-sila-prime",
       "repoName": "opencode-sila-prime",
       "directory": "opencode-sila-prime",
@@ -335,6 +342,7 @@
         "todo",
         "session"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/task-tool/",
       "repo": "https://github.com/jadmadi/opencode-task-tool",
       "repoName": "opencode-task-tool",
       "directory": "opencode-task-tool",
@@ -372,6 +380,7 @@
         "judge",
         "session"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/goal/",
       "repo": "https://github.com/jadmadi/opencode-goal",
       "repoName": "opencode-goal",
       "directory": "opencode-goal",
@@ -412,6 +421,7 @@
         "research",
         "artifacts"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/workflows/",
       "repo": "https://github.com/jadmadi/opencode-workflows",
       "repoName": "opencode-workflows",
       "directory": "opencode-workflows",
@@ -452,6 +462,7 @@
         "cadence",
         "autonomy"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/loop/",
       "repo": "https://github.com/jadmadi/opencode-loop",
       "repoName": "opencode-loop",
       "directory": "opencode-loop",
@@ -493,6 +504,7 @@
         "review",
         "agents"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/compose-next/",
       "repo": "https://github.com/jadmadi/opencode-compose-next",
       "repoName": "opencode-compose-next",
       "directory": "opencode-compose-next",
@@ -532,6 +544,7 @@
         "safety",
         "autonomy"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/skip-permissions/",
       "repo": "https://github.com/jadmadi/opencode-skip-permissions",
       "repoName": "opencode-skip-permissions",
       "directory": "opencode-skip-permissions",
@@ -572,6 +585,7 @@
         "workflow-capture",
         "history"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/distill/",
       "repo": "https://github.com/jadmadi/opencode-distill",
       "repoName": "opencode-distill",
       "directory": "opencode-distill",
@@ -611,6 +625,7 @@
         "analytics",
         "skills"
       ],
+      "url": "https://jadmadi.net/projects/opencode-plugins/data-analytics/",
       "repo": "https://github.com/jadmadi/opencode-data-analytics",
       "repoName": "opencode-data-analytics",
       "directory": "opencode-data-analytics",
