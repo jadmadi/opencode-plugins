@@ -84,7 +84,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-model-switcher",
       "previousVersion": "0.5.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-model-switcher/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-model-switcher/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "context-limit",
@@ -122,7 +124,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-context-limit",
       "previousVersion": "0.1.3",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-context-limit/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-context-limit/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "max-mode",
@@ -162,7 +166,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-max-mode",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-max-mode/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-max-mode/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "memory",
@@ -212,7 +218,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-memory",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-memory/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-memory/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "sila",
@@ -271,7 +279,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-sila",
       "previousVersion": "0.7.0",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-sila/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-sila/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "sila-prime",
@@ -309,7 +319,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-sila-prime",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-sila-prime/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-sila-prime/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "task-tool",
@@ -344,7 +356,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-task-tool",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-task-tool/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-task-tool/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "goal",
@@ -382,7 +396,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-goal",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-goal/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-goal/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "workflows",
@@ -420,7 +436,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-workflows",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-workflows/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-workflows/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "loop",
@@ -458,7 +476,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-loop",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-loop/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-loop/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "compose-next",
@@ -497,7 +517,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-compose-next",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-compose-next/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-compose-next/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "skip-permissions",
@@ -534,7 +556,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-skip-permissions",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-skip-permissions/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-skip-permissions/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "distill",
@@ -572,7 +596,9 @@
       "installCommand": "opencode plugin add github:jadmadi/opencode-distill",
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-distill/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-distill/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     },
     {
       "name": "data-analytics",
@@ -604,7 +630,9 @@
       "installCommand": "git clone https://github.com/jadmadi/opencode-data-analytics && cp -r opencode-data-analytics/skills/* ~/.config/opencode/skills/",
       "previousVersion": "0.5.0",
       "versionScheme": "calver",
-      "changelog": "https://github.com/jadmadi/opencode-data-analytics/blob/main/CHANGELOG.md"
+      "changelog": "https://github.com/jadmadi/opencode-data-analytics/blob/main/CHANGELOG.md",
+      "builtUnder": "2.0.16",
+      "builtUnderTag": "builtUnder-2.0.16"
     }
   ]
 }
