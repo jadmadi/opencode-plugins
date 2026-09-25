@@ -98,6 +98,7 @@ that repo is next changed.
   users. Merge only when the tests pass.
 - No GitHub Actions. Each repo installs the sila pre-push gate, so the tests run
   locally before the push, and `main` requires a pull request.
+- Every plugin repo is licensed AGPL-3.0-only.
 - Plugins carry no dependencies. The test run writes `aube-lock.yaml`; ignore
   it, do not commit it.
 
