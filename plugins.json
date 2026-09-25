@@ -38,7 +38,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/model",
@@ -115,7 +115,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/context-limit",
@@ -156,7 +156,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/max",
@@ -199,7 +199,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/remember",
@@ -253,7 +253,7 @@
       "version": "2026.9.1",
       "latestTag": "v2026.9.1",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/sila-focus",
@@ -314,7 +314,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/sila",
@@ -355,7 +355,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [],
       "tools": [
         "task"
@@ -393,7 +393,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/goal",
@@ -434,7 +434,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/workflow",
@@ -475,7 +475,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/loop",
@@ -517,7 +517,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/compose-next",
@@ -557,7 +557,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/skip-permissions",
@@ -598,7 +598,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/distill",
@@ -638,7 +638,7 @@
       "version": "2026.9.0",
       "latestTag": "v2026.9.0",
       "updated": "2026-09-25",
-      "license": "MIT",
+      "license": "AGPL-3.0-only",
       "commands": [],
       "tools": [],
       "limits": "A skills pack, not a plugin. It ships six skills: da-analyze-data-quality, da-design-kpis, da-metric-diagnostics, da-product-biz-analysis, da-validate-data, da-visualize-data.",
