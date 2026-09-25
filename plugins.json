@@ -1,4 +1,5 @@
 {
+  "$schema": "./plugins.schema.json",
   "meta": {
     "title": "Jad Madi's OpenCode plugins",
     "description": "Every OpenCode V2 plugin and skills pack, with what it is, what it solves, and where it lives.",
