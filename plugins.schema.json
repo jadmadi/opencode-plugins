@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://jadmadi.net/schemas/opencode-plugins.schema.json",
+  "title": "OpenCode Plugins & Skills Catalog",
+  "description": "Schema for Jad Madi's OpenCode V2 plugins, tools, and skills ecosystem manifest.",
+  "type": "object",
+  "required": [
+    "meta",
+    "plugins"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "URI reference to this JSON schema file."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Metadata about the plugins catalog and repository ecosystem.",
+      "required": [
+        "title",
+        "description",
+        "generated",
+        "owner",
+        "count",
+        "map",
+        "mapRepo"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Display title of the plugins catalog."
+        },
+        "description": {
+          "type": "string",
+          "description": "High-level summary of what this catalog contains."
+        },
+        "generated": {
+          "type": "string",
+          "description": "Date when this catalog was last generated or synchronized (YYYY-MM-DD)."
+        },
+        "root": {
+          "type": "string",
+          "description": "Absolute filesystem root path of the plugin repositories on the author's workstation."
+        },
+        "owner": {
+          "type": "string",
+          "description": "GitHub username or organization owning the repositories."
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of registered plugins and skills packs in this file."
+        },
+        "map": {
+          "type": "string",
+          "description": "Repository directory or project identifier representing the ecosystem map."
+        },
+        "mapRepo": {
+          "type": "string",
+          "format": "uri",
+          "description": "Public GitHub repository URL hosting this map and catalog."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical public URL of the interactive showcase hub on jadmadi.net."
+        },
+        "note": {
+          "type": "string",
+          "description": "Policy notes regarding private versus public plugins."
+        },
+        "installNote": {
+          "type": "string",
+          "description": "Guidance on how to install and avoid conflicts between local symlinks and git distribution."
+        },
+        "versioning": {
+          "type": "string",
+          "description": "Explanation of the CalVer versioning scheme used across plugins."
+        }
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "description": "List of OpenCode plugins, workflows, and skills packs.",
+      "items": {
+        "$ref": "#/definitions/pluginItem"
+      }
+    }
+  },
+  "definitions": {
+    "pluginItem": {
+      "type": "object",
+      "description": "An individual OpenCode plugin, tool, or skills pack definition.",
+      "required": [
+        "name",
+        "title",
+        "category",
+        "summary",
+        "problem",
+        "tags",
+        "repo",
+        "repoName",
+        "directory",
+        "visibility",
+        "published",
+        "installed",
+        "artifact",
+        "version",
+        "updated",
+        "license",
+        "commands",
+        "tools",
+        "limits",
+        "install",
+        "installCommand"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "URL-safe, unique kebab-case identifier for the plugin (e.g. 'model-switcher')."
+        },
+        "title": {
+          "type": "string",
+          "description": "Human-readable display name of the plugin (e.g. 'Model Switcher')."
+        },
+        "category": {
+          "type": "string",
+          "description": "Functional category grouping (e.g. 'Models', 'Sessions and memory', 'Autonomy and workflow', 'Safety', 'Skills pack')."
+        },
+        "summary": {
+          "type": "string",
+          "description": "Concise summary of what the plugin does and its primary capabilities."
+        },
+        "problem": {
+          "type": "string",
+          "description": "The specific developer friction or workflow problem this plugin resolves."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Taxonomy keywords and search tags for discovery."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical public detail page URL on jadmadi.net."
+        },
+        "repo": {
+          "type": "string",
+          "format": "uri",
+          "description": "Public or private GitHub repository URL hosting the source code."
+        },
+        "repoName": {
+          "type": "string",
+          "description": "GitHub repository name (e.g. 'opencode-model-switcher')."
+        },
+        "directory": {
+          "type": "string",
+          "description": "Local directory name under the oc-plugins workspace."
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "public",
+            "private"
+          ],
+          "description": "Repository visibility on GitHub: 'public' or 'private'."
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Whether this plugin is published on the public showcase site (jadmadi.net). True for public releases; false for internal or private tooling."
+        },
+        "installed": {
+          "type": "boolean",
+          "description": "Whether this plugin is currently installed on the local machine in ~/.config/opencode/plugins/."
+        },
+        "artifact": {
+          "type": "string",
+          "description": "Entry point file or directory distributed for the plugin (e.g. 'model-switcher.ts', 'opencode-sila/', 'skills/')."
+        },
+        "installedPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Local filesystem path where the plugin is linked or copied in ~/.config/opencode/plugins/, or null if not installed."
+        },
+        "version": {
+          "type": "string",
+          "description": "Current release version using CalVer YYYY.MM.MICRO (e.g. '2026.9.0')."
+        },
+        "latestTag": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Git release tag corresponding to current version (e.g. 'v2026.9.0')."
+        },
+        "updated": {
+          "type": "string",
+          "description": "Date when this plugin was last released or updated (YYYY-MM-DD)."
+        },
+        "license": {
+          "type": "string",
+          "description": "Open source or proprietary software license (e.g. 'MIT')."
+        },
+        "commands": {
+          "type": "array",
+          "description": "Custom slash commands registered by this plugin into the OpenCode TUI.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "description"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Slash command trigger including leading slash (e.g. '/model', '/free')."
+              },
+              "description": {
+                "type": "string",
+                "description": "What the slash command does when invoked."
+              }
+            }
+          }
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Autonomous agent tool names registered with OpenCode (e.g. 'best_of_n', 'memory_search', 'task')."
+        },
+        "limits": {
+          "type": "string",
+          "description": "Known operational constraints, environment variable overrides (e.g. MAX_MODE_MODEL, MEMORY_ROOT), and safety rules."
+        },
+        "install": {
+          "type": "string",
+          "description": "Instructions for manual local installation (copying or symlinking into ~/.config/opencode/plugins/)."
+        },
+        "installCommand": {
+          "type": "string",
+          "description": "One-line OpenCode CLI install command for git distribution (e.g. 'opencode plugin add github:jadmadi/opencode-model-switcher')."
+        },
+        "previousVersion": {
+          "type": "string",
+          "description": "Legacy semver version prior to migrating to CalVer (e.g. '0.5.2')."
+        },
+        "versionScheme": {
+          "type": "string",
+          "enum": [
+            "calver",
+            "semver"
+          ],
+          "description": "Version numbering scheme in use ('calver')."
+        },
+        "changelog": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the CHANGELOG.md file in the plugin's GitHub repository."
+        },
+        "builtUnder": {
+          "type": "string",
+          "description": "OpenCode runtime version this plugin was built and tested against (e.g. '2.0.16')."
+        },
+        "builtUnderTag": {
+          "type": "string",
+          "description": "Git release tag marking the OpenCode runtime baseline (e.g. 'builtUnder-2.0.16')."
+        }
+      }
+    }
+  }
+}
