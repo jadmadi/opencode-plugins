@@ -62,8 +62,8 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 
 ## Analytics
 
-- [data-analytics](https://github.com/jadmadi/opencode-data-analytics):
-  a skills-only pack, no plugin. Six analysis skills under a `da-` prefix:
+- `data-analytics` (private): a skills-only pack, no plugin. Six analysis
+  skills under a `da-` prefix:
   `/da-analyze-data-quality`, `/da-design-kpis`, `/da-metric-diagnostics`,
   `/da-product-biz-analysis`, `/da-validate-data`, `/da-visualize-data`.
 
@@ -71,7 +71,9 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 
 | Name              | Plugin          | Purpose                                             |
 | ----------------- | --------------- | --------------------------------------------------- |
-| `/ds-go` `/ds` `/zai` `/oc-zen` `/oc-thinking` | model-switcher | Switch model, or cycle a group |
+| `/model` | model-switcher | Show the current model, or switch by reference |
+| `/free` `/cheap` `/think` `/vision` | model-switcher | Cycle models by cost or capability |
+| `/long` `/newest` `/muse` `/glm` `/nvid` | model-switcher | Cycle models by window, age, or family |
 | `/context-limit`  | context-limit   | Show or set a working context budget                |
 | `/max`            | max-mode        | Set the default best-of-N count                     |
 | `best_of_n`       | max-mode        | Run candidates and return the judged winner         |
@@ -109,7 +111,7 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 
 ## Conventions
 
-- One repo per plugin, MIT licensed, with README, AGENTS.md, CONTRIBUTING.md,
+- One repo per plugin, AGPL-3.0-only, with README, AGENTS.md, CONTRIBUTING.md,
   LICENSE, and a NOTICE when content is adapted from another project.
 - Single-file, dependency-free plugin. Export a plain `{ id, setup }` object and
   use Bun globals. Do not import `@opencode/plugin`.
