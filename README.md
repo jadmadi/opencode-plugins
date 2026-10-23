@@ -113,8 +113,9 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 
 - One repo per plugin, AGPL-3.0-only, with README, AGENTS.md, CONTRIBUTING.md,
   LICENSE, and a NOTICE when content is adapted from another project.
-- Single-file, dependency-free plugin. Export a plain `{ id, setup }` object and
-  use Bun globals. Do not import `@opencode/plugin`.
+- Server plugins import `Plugin` from `@opencode/plugin` and export
+  `Plugin.define({ id, setup })`. The host provides the module; keep package
+  dependencies at zero and use Bun globals.
 - Tests with `bun test`.
 - Built through the compose-next workflow: spec, workspace, implement, verify,
   review with the `reviewer` subagent, finalize, then a pull request.
