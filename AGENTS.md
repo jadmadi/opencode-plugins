@@ -83,10 +83,10 @@ Probe recipe when the check says MIGRATE:
    `ctx.model` exists, keep `Plugin.define` and the model/provider domains,
    then bump versions, update the changelog, tag, and release.
 
-Known stale text: `opencode-sila` is a multi-file TUI plugin and is not one of
-the 12 server plugins migrated to `Plugin.define`. Its server entry still uses
-a plain `{ id, setup }` object, and its AGENTS.md says the runtime does not
-resolve `@opencode/plugin`. Update that repo when it is next changed.
+`opencode-sila` is a private multi-file TUI plugin. Its server entry uses
+`Plugin.define` and its tests stub `@opencode/plugin`, so it follows the same
+convention as the 12 public server plugins. `opencode-data-analytics` is a
+skills pack with no plugin entry.
 
 ## Conventions
 
