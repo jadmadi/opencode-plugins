@@ -47,6 +47,7 @@ var (
 	catalogProp  = regexp.MustCompile(`(?m)^\s*readonly catalog\s*:`)
 	modelProp    = regexp.MustCompile(`(?m)^\s*readonly model\s*:`)
 	providerProp = regexp.MustCompile(`(?m)^\s*readonly provider\s*:`)
+	defineExport = regexp.MustCompile(`(?m)^export declare function define\(`)
 )
 
 func readBaseline() (*baseline, error) {
@@ -129,6 +130,9 @@ func detectAPI(client *http.Client, tarball string) (string, error) {
 		case catalogProp.MatchString(text):
 			return "catalog", nil
 		case modelProp.MatchString(text) && providerProp.MatchString(text):
+			if !defineExport.MatchString(text) {
+				return "model-provider-no-define", nil
+			}
 			return "model-provider", nil
 		default:
 			return "unknown", nil
@@ -188,5 +192,5 @@ func main() {
 	fmt.Printf("  installed opencode: %s\n", installed)
 	fmt.Printf("  npm @opencode/plugin: %s (%s API)\n", info.Version, api)
 	fmt.Printf("  baseline: %s %s, checked %s\n", base.Runtime, base.API, base.Checked)
-	fmt.Println("  Keep the plain { id, setup } object and the domains the baseline names.")
+	fmt.Println("  Keep the model/provider domains and export Plugin.define({ id, setup }).")
 }

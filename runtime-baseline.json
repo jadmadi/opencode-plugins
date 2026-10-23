@@ -1,6 +1,6 @@
 {
-  "runtime": "2.0.16",
+  "runtime": "2.1.3",
   "api": "model-provider",
-  "checked": "2026-09-25",
-  "note": "Re-probed on 2.0.16. ctx.model carries model reads and transforms (members: default, list, reload, transform); ctx.provider carries provider reads and transforms (members: get, list, reload, transform). ctx.catalog is undefined. The import { Plugin } from \"@opencode/plugin\" still does not resolve for local file plugins on 2.0.16 (a probe plugin failed with Cannot find package '@opencode/plugin'); only @opencode/plugin/tui is aliased, for CLI plugins. Keep the plain { id, setup } object."
+  "checked": "2026-10-23",
+  "note": "Re-probed on 2.1.3. ctx.model carries model reads and transforms (members: default, list, reload, transform); ctx.provider carries provider reads and transforms (members: get, list, reload, transform). ctx.catalog is undefined. ctx.credential is available. ctx.session has list, remove, and compact. ctx.permission.assert is available. The import { Plugin } from \"@opencode/plugin\" resolves for local file plugins; export Plugin.define({ id, setup }). @opencode/plugin/tui remains the CLI alias."
 }

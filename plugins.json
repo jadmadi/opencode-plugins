@@ -3,7 +3,7 @@
   "meta": {
     "title": "Jad Madi's OpenCode plugins",
     "description": "Every OpenCode V2 plugin and skills pack, with what it is, what it solves, and where it lives.",
-    "generated": "2026-09-25",
+    "generated": "2026-10-23",
     "root": "/mnt/Jad/github/projects/jadmadi/oc-plugins",
     "owner": "jadmadi",
     "count": 14,
@@ -35,9 +35,9 @@
       "installed": true,
       "artifact": "model-switcher.ts",
       "installedPath": "~/.config/opencode/plugins/model-switcher.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -88,8 +88,8 @@
       "previousVersion": "0.5.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-model-switcher/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "context-limit",
@@ -112,9 +112,9 @@
       "installed": true,
       "artifact": "context-limit.ts",
       "installedPath": "~/.config/opencode/plugins/context-limit.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -129,8 +129,8 @@
       "previousVersion": "0.1.3",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-context-limit/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "max-mode",
@@ -153,9 +153,9 @@
       "installed": true,
       "artifact": "max-mode.ts",
       "installedPath": "~/.config/opencode/plugins/max-mode.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -172,8 +172,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-max-mode/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "memory",
@@ -196,9 +196,9 @@
       "installed": true,
       "artifact": "memory.ts",
       "installedPath": "~/.config/opencode/plugins/memory.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -225,8 +225,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-memory/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "sila",
@@ -311,9 +311,9 @@
       "installed": true,
       "artifact": "sila-prime.ts",
       "installedPath": "~/.config/opencode/plugins/sila-prime.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -328,8 +328,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-sila-prime/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "task-tool",
@@ -352,9 +352,9 @@
       "installed": true,
       "artifact": "task-tool.ts",
       "installedPath": "~/.config/opencode/plugins/task-tool.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [],
       "tools": [
@@ -366,8 +366,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-task-tool/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "goal",
@@ -390,9 +390,9 @@
       "installed": true,
       "artifact": "goal.ts",
       "installedPath": "~/.config/opencode/plugins/goal.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -407,8 +407,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-goal/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "workflows",
@@ -431,9 +431,9 @@
       "installed": true,
       "artifact": "workflows.ts",
       "installedPath": "~/.config/opencode/plugins/workflows.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -448,8 +448,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-workflows/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "loop",
@@ -472,9 +472,9 @@
       "installed": true,
       "artifact": "loop.ts",
       "installedPath": "~/.config/opencode/plugins/loop.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -489,8 +489,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-loop/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "compose-next",
@@ -514,9 +514,9 @@
       "installed": true,
       "artifact": "compose-next.ts",
       "installedPath": "~/.config/opencode/plugins/compose-next.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -531,8 +531,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-compose-next/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "skip-permissions",
@@ -554,9 +554,9 @@
       "installed": true,
       "artifact": "skip-permissions.ts",
       "installedPath": "~/.config/opencode/plugins/skip-permissions.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -571,8 +571,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-skip-permissions/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "distill",
@@ -595,9 +595,9 @@
       "installed": true,
       "artifact": "distill.ts",
       "installedPath": "~/.config/opencode/plugins/distill.ts",
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -612,8 +612,8 @@
       "previousVersion": "0.1.2",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-distill/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "data-analytics",
