@@ -250,9 +250,9 @@
       "installed": true,
       "artifact": "opencode-sila/",
       "installedPath": "~/.config/opencode/plugins/opencode-sila",
-      "version": "2026.9.1",
-      "latestTag": "v2026.9.1",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [
         {
@@ -284,11 +284,11 @@
       "limits": "Read-only except explicit actions. Release refuses another agent's claim, and one session binds to one goal per repo. Env: SILA_BIN, SILA_POLL_MS, SILA_MAX_GOALS, SILA_MAX_TASKS, SILA_EDITOR.",
       "install": "Symlink the repo into ~/.config/opencode/plugins/opencode-sila (the repo's script/install does this).",
       "installCommand": "opencode plugin add github:jadmadi/opencode-sila",
-      "previousVersion": "0.7.0",
+      "previousVersion": "2026.9.1",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-sila/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     },
     {
       "name": "sila-prime",
@@ -635,20 +635,20 @@
       "installed": false,
       "artifact": "skills/",
       "installedPath": null,
-      "version": "2026.9.0",
-      "latestTag": "v2026.9.0",
-      "updated": "2026-09-25",
+      "version": "2026.10.0",
+      "latestTag": "v2026.10.0",
+      "updated": "2026-10-23",
       "license": "AGPL-3.0-only",
       "commands": [],
       "tools": [],
       "limits": "A skills pack, not a plugin. It ships six skills: da-analyze-data-quality, da-design-kpis, da-metric-diagnostics, da-product-biz-analysis, da-validate-data, da-visualize-data.",
       "install": "Copy the skills/ directory into ~/.config/opencode/skills/ (or .opencode/skills/ for one project).",
       "installCommand": "git clone https://github.com/jadmadi/opencode-data-analytics && cp -r opencode-data-analytics/skills/* ~/.config/opencode/skills/",
-      "previousVersion": "0.5.0",
+      "previousVersion": "2026.9.0",
       "versionScheme": "calver",
       "changelog": "https://github.com/jadmadi/opencode-data-analytics/blob/main/CHANGELOG.md",
-      "builtUnder": "2.0.16",
-      "builtUnderTag": "builtUnder-2.0.16"
+      "builtUnder": "2.1.3",
+      "builtUnderTag": "builtUnder-2.1.3"
     }
   ]
 }
