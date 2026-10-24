@@ -31,7 +31,7 @@ compaction.
   such as `opencode-go/*` or `*`, and the longest matching pattern wins. The map
   lives in `opencode.json` under `compaction.max_context` when the config
   supports it, otherwise in plugin storage.
-- A spike task decides where the budget can take effect: a catalog transform on
+- A spike task decides where the budget can take effect: a model transform on
   the model limit, or the config compaction threshold. The chosen path is
   recorded in the spec before the command is built.
 
