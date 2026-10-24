@@ -39,6 +39,18 @@ go run script/check-catalog/main.go
 
 Exit 0 means the catalog matches. Exit 1 lists the drift.
 
+## Checks and the pre-push hook
+
+`script/test` runs the catalog check and the runtime API check. Install the
+pre-push hook once per clone so it runs before every push:
+
+```sh
+script/install-hooks
+```
+
+The runtime check tolerates exit 3 (offline or runtime missing) and blocks on a
+real mismatch.
+
 For a behavior fix in a plugin, update the map only when the fix changes
 something the map states: a command, a tool, an override, or a limit. Routine
 internal fixes do not need a map change.
