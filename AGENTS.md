@@ -55,7 +55,7 @@ go run script/check-runtime-api.go
 - UNKNOWN means the check could not reach the runtime or the registry. Do not
   treat it as HOLD.
 
-Baseline as of 2026-10-23, OpenCode 2.1.3 (re-probed):
+Baseline as of 2026-10-24, OpenCode 2.1.4 (re-probed):
 
 - `ctx.model` carries model reads and transforms (members: `default`, `list`,
   `reload`, `transform`), and `ctx.provider` carries provider reads and
@@ -64,7 +64,7 @@ Baseline as of 2026-10-23, OpenCode 2.1.3 (re-probed):
 - `ctx.catalog` does not exist. Migrate `ctx.catalog.model.*` to
   `ctx.model.*` and `ctx.catalog.provider.*` to `ctx.provider.*`.
 - `import { Plugin } from "@opencode/plugin"` resolves for local file plugins
-  on 2.1.3. Export `Plugin.define({ id, setup })`. Each server plugin repo
+  on 2.1.4. Export `Plugin.define({ id, setup })`. Each server plugin repo
   stubs the module in `test-preload.ts` so `bun test` runs outside OpenCode.
 - `ctx.credential` is available.
 - `ctx.session` has `list`, `remove`, and `compact`.
@@ -111,7 +111,7 @@ skills pack with no plugin entry.
   `bun test`.
 - Each release records the OpenCode version it was built and tested under, as
   `builtUnder` in `package.json` plus a `builtUnder-<version>` tag, for example
-  `builtUnder-2.1.3`.
+  `builtUnder-2.1.4`.
 - A status output ends with a line `<plugin> <version>` when the plugin has a
   status surface: model-switcher, context-limit, loop, goal, max-mode,
   skip-permissions, workflows, and distill. One-line status messages get the
@@ -124,9 +124,9 @@ skills pack with no plugin entry.
 - `CHANGELOG.md` records each release. Add an entry under the new version when
   you bump it.
 - After a change merges to main, tag the repo `v<version>` (for example
-  `v2026.10.0`) and publish a GitHub release with short notes.
+  `v2026.10.1`) and publish a GitHub release with short notes.
 - Install docs keep the `main` URL and add one line: pin a release by replacing
-  `main` with a tag such as `v2026.10.0`.
+  `main` with a tag such as `v2026.10.1`.
 - The first CalVer release is `2026.9.0` for every plugin.
 
 ## Releasing
