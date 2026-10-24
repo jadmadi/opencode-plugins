@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# Map checks: the catalog matches the repos, and the runtime API baseline holds.
+set -eu
+cd "$(dirname "$0")/.."
+
+go run script/check-catalog/main.go
+
+set +e
+go run script/check-runtime-api.go
+status=$?
+set -e
+if [ "$status" -eq 3 ]; then
+	echo "check-runtime-api: UNKNOWN (offline or runtime missing); not blocking" >&2
+	exit 0
+fi
+exit "$status"
