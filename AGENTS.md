@@ -23,7 +23,21 @@ Checklist for a new or renamed plugin:
 - Add its design spec under `docs/compose/spec/<plugin>.md`, or say why there is
   none.
 - Verify the repo link resolves with `gh repo list jadmadi --limit 200`.
+- Run `go run script/check-catalog/main.go` and clear any findings.
 - Ship the change on a branch and open a pull request.
+
+## Catalog check
+
+`plugins.json` is validated by `script/check-catalog/main.go`. It compares each
+entry against its sibling repo (`package.json` version and `builtUnder`), the
+README link, and `runtime-baseline.json`. Run it from this repo root after any
+change to the catalog:
+
+```sh
+go run script/check-catalog/main.go
+```
+
+Exit 0 means the catalog matches. Exit 1 lists the drift.
 
 For a behavior fix in a plugin, update the map only when the fix changes
 something the map states: a command, a tool, an override, or a limit. Routine

@@ -129,6 +129,8 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 - Runtime API baseline in `runtime-baseline.json`, checked by
   `go run script/check-runtime-api.go` from the repo root. Run it before
   changing any plugin's `ctx` usage.
+- Catalog in `plugins.json`, checked by `go run script/check-catalog/main.go`
+  from the repo root. Run it after any change to the catalog.
 
 ## Sources and license
 
