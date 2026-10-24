@@ -26,7 +26,9 @@ compaction.
 - `/context-limit` prints the resolved budget for the current model.
   `/context-limit 128K` sets it. `/context-limit 50%` sets half the catalog
   window. `/context-limit 0` clears it.
-- Values clamp to the catalog window and never raise it.
+- `/output-limit` is the same command shape for a max output-token budget. It
+  lowers `limit.output` and stores its rules separately from the context rules.
+- Values clamp to the catalog value for their field and never raise it.
 - Storage is a map from a model pattern to a budget. Patterns accept a wildcard,
   such as `opencode-go/*` or `*`, and the longest matching pattern wins. The map
   lives in `opencode.json` under `compaction.max_context` when the config

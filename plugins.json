@@ -95,7 +95,7 @@
       "name": "context-limit",
       "title": "Context Limit",
       "category": "Models",
-      "summary": "Sets a per-model working context budget by lowering the model window, so compaction fires before quality drops.",
+      "summary": "Sets a per-model working context budget and a max output-token budget, lowering the model limits so compaction fires before quality drops and a reply stays capped.",
       "problem": "A model's advertised window is larger than its useful working window, and one global compaction threshold is either too late for small models or too eager for large ones.",
       "tags": [
         "context",
@@ -112,18 +112,22 @@
       "installed": true,
       "artifact": "context-limit.ts",
       "installedPath": "~/.config/opencode/plugins/context-limit.ts",
-      "version": "2026.10.1",
-      "latestTag": "v2026.10.1",
+      "version": "2026.10.2",
+      "latestTag": "v2026.10.2",
       "updated": "2026-10-24",
       "license": "AGPL-3.0-only",
       "commands": [
         {
           "name": "/context-limit",
           "description": "Show or set a working context budget for a model or pattern."
+        },
+        {
+          "name": "/output-limit",
+          "description": "Show or set a max output-token budget for a model or pattern."
         }
       ],
       "tools": [],
-      "limits": "It can only lower a model window, never raise it.",
+      "limits": "It can only lower a model limit, never raise it.",
       "install": "Copy context-limit.ts into ~/.config/opencode/plugins/ and restart the TUI.",
       "installCommand": "opencode plugin add github:jadmadi/opencode-context-limit",
       "previousVersion": "0.1.3",
