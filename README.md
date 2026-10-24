@@ -20,8 +20,9 @@ https://opencode.ai/go?ref=N9H3ZEP22A
   commands that switch provider and model mid-session. The command set comes
   from a user JSON file, so anyone can add their own.
 - [context-limit](https://github.com/jadmadi/opencode-context-limit): a working
-  context budget per model. It lowers the model window through a model
-  transform, so compaction fires earlier. It can only lower a window.
+  context budget and a max output-token budget per model. It lowers the model
+  limits through a model transform, so compaction fires earlier and a reply
+  stays capped. It can only lower a limit.
 - [max-mode](https://github.com/jadmadi/opencode-max-mode): a `best_of_n` tool
   that runs 2 to 8 candidate answers in parallel and a judge picks the winner.
 
@@ -75,6 +76,7 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 | `/free` `/cheap` `/think` `/vision` | model-switcher | Cycle models by cost or capability |
 | `/long` `/newest` `/muse` `/glm` `/nvid` | model-switcher | Cycle models by window, age, or family |
 | `/context-limit`  | context-limit   | Show or set a working context budget                |
+| `/output-limit`   | context-limit   | Show or set a max output-token budget               |
 | `/max`            | max-mode        | Set the default best-of-N count                     |
 | `best_of_n`       | max-mode        | Run candidates and return the judged winner         |
 | `/remember` `/memory` `/checkpoint` | memory | Write or read the memory files           |
@@ -98,7 +100,7 @@ https://opencode.ai/go?ref=N9H3ZEP22A
 - One loop per session, because the turn-end event names the session, not the
   run.
 - `skip-permissions` never overrides a deny. `context-limit` never raises a
-  window. `distill` writes only on an explicit apply and never overwrites.
+  limit. `distill` writes only on an explicit apply and never overwrites.
 - `sila-prime` calls the `sila` CLI. `SILA_BIN` points at the binary,
   `SILA_PRIME=off` disables the first-prompt briefing, and `SILA_PRIME_BUDGET`
   caps it. The session is marked after one attempt, so `/sila` refreshes on
